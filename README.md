@@ -22,3 +22,5 @@ security:
     resource:
       userInfoUri: https://us.api.battle.net/wow/user/characters
 ```
+## How to Run
+Run `LocalSpringBlizzardApp.java` and open your browser to http://localhost:8080.
