@@ -1,4 +1,6 @@
 # SpringAndBlizzard
+![#005B00](https://placehold.it/15/005B00/000000?text=+) SpringAndBlizzard's <code>master</code> branch is working
+
 Using Spring Security to authenticate user credentials through Blizzard's battle.net servers
 
 This app will securely log into battle.net through Blizzard's authentication servers provided you can present valid credentials.
