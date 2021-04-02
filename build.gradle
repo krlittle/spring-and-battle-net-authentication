@@ -1,22 +1,42 @@
-group 'springandblizzard'
-version '1.0-SNAPSHOT'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
 
-apply plugin: 'java'
+plugins {
+    id 'org.springframework.boot' version '2.3.9.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
 
-sourceCompatibility = 1.8
+allprojects {
+    ext.gradleScriptDir = "${rootProject.projectDir}/gradle"
+}
+
+group = 'springandblizzard'
+version '2.0.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.3.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.5.3.RELEASE'
-    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.1.1.RELEASE'
-    compile group: 'org.webjars', name: 'angularjs', version: '1.4.3'
-    compile group: 'org.webjars', name: 'jquery', version: '2.1.1'
-    compile group: 'org.webjars', name: 'bootstrap', version: '3.2.0'
-    compile group: 'org.webjars', name: 'webjars-locator', version: '0.32'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.security.oauth:spring-security-oauth2'
+    implementation 'org.webjars:angularjs:1.4.3'
+    implementation 'org.webjars:jquery:2.1.1'
+    implementation 'org.webjars:bootstrap:3.2.0'
+    implementation 'org.webjars:webjars-locator:0.32'
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
 }
